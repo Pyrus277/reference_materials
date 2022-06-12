@@ -1,0 +1,106 @@
+<!-- This is how you comment in html -->
+<!-- It's a pretty annoying syntax just for comments-->
+<!DOCTYPE html> <!--always include this line, defines the flavor of HTML -->
+<html>
+<head> <!-- this will appear only on the tab or title bar of the window-->
+    <title>My fourth web page</title>
+</head>
+
+<!-- <em></em> = italics -->
+<!-- <strong></strong> = bold-->
+
+<body>
+    <a href="#tutorial">Where's this tutorial from? (anchor link)</a><br>
+    <h1>My fourth web page</h1>
+
+    <h2>What is this?</h2>
+    <p>This <em>is</em> as <strong>simple</strong> page put together using HTML</p>
+    
+    <h2>Why this is?</h2>
+    <ol>
+        <li>To learn HTML</li>
+        <li>It's relevant to web scraping</li>
+        <li>Which is relevent to DE</li>
+        <li>Which is the field I'm trying to get a job in</li>
+    </ol>
+
+    <h2>Here's an image</h2>
+    <p><img src="/home/perry/automate/html/oddish.jpg" width="120"
+    height="90" alt="oddish"></p>
+
+    <h2>Here's a table</h2>
+    <table>
+        <tr>
+            <td>Row 1, cell 1</td>
+            <td>Row 1, cell 2</td>
+            <td>Row 1, cell 3</td>
+        </tr>
+        <tr>
+            <td>Row 2, cell 1</td>
+            <td>Row 2, cell 2</td>
+            <td>Row 2, cell 3</td>
+        </tr>
+        <tr>
+            <td>Row 3, cell 1</td>
+            <td>Row 3, cell 2</td>
+            <td>Row 3, cell 3</td>
+        </tr>
+        <tr>
+            <td>Row 4, cell 1</td>
+            <td>Row 4, cell 2</td>
+            <td>Row 4, cell 3</td>
+
+        </tr>
+    </table>
+
+    <h2>Here's a dropdown table</h2>
+    <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option value="third option">Option 3</option>
+    </select>
+    
+
+
+    
+    <h2 id="tutorial">Where to find the tutorial?</h2>
+    <p><a href="http://www.htmldog.com">HTML Dog</a></p>
+
+</body>
+
+</html>
+
+<!-- Anchor links are similar to regular links.
+Set your anchor like: <h2 id="moss">Moss</h2>
+Then go to where you're linking from and make the link like:
+<a href="#moss">Go to moss</a> -->
+
+<!-- Form- used to collect data inputted by a user
+Basic tags used in HTML forms: form, input. textarea, select
+    -Form: defines the form and within the tag, an action attribute
+    is needed to tell the form where its contents will be sent to
+    -Method: tell the form how the data in it is going to be sent 
+    and it can have the value 'get', which is default, and latches
+    the form information onto a web address, or 'post', wich sends
+    the form's info
+    ex. <form action="processingscript.php" method="post">
+    </form>
+
+    -Input: can take a multitude of guises. Google it.
+    Common ones are:
+    <input type="text"> or <input>, a standard textbox
+    <input type="password"> characters typed will be hidden
+    <input type="checkbox"> a checkbox to be toggled on and off by the user
+-->
+
+<!-- textarea: a large, multi-line textbox:
+    <textarea rows="5" cols="20"> A big load of text</textarea> 
+-->
+
+<!-- select + option: make a drop down select box
+    <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option value="third option">Option 3</option>
+    </select>
+-->
