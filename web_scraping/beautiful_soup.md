@@ -1,4 +1,5 @@
-## Beautiful Soup Notes  
+## Beautiful Soup Notes 
+### From the book *Automate the boring stuff* by Al Swiegart   
 Basic syntax combo with requests module:  
 ```python
 import requests, bs4
@@ -35,5 +36,14 @@ Here are some of the most common CSS selector patterns:
 |soup.select('input[name]') | All elements named <input> that have an attribute with any value |
 |soup.select('input[type="button"]') | All elements named <input> that have an attribute named type with value button |
 
+  **Instead of writing the selector yourself, you can right click the element in your
+  browser and select "Inspect Element". When the developer's console opens, right-click
+  the element's HTML and select "Copy > CSS Selector" to copy the selector string to the
+  clipboard and paste it into your source code.**  
+    
+  The select() method will return *a list of Tag objects*, which is how BS represents an
+  HTML element. 
+  
+  
 
 
