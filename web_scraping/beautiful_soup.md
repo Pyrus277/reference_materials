@@ -93,9 +93,4 @@ spanElem.get('some_nonexistent_addr') == None
 # True
 spanElem.attrs
 # {'id':'author'}
-'''
- 
-  
-  
-
-
+```
