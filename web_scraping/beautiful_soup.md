@@ -1,5 +1,5 @@
 ## Beautiful Soup Notes 
-### From the book *Automate the boring stuff* by Al Swiegart   
+### From the book *Automate the boring stuff* by Al Sweigart   
 Basic syntax combo with requests module:  
 ```python
 import requests, bs4
@@ -36,13 +36,52 @@ Here are some of the most common CSS selector patterns:
 |soup.select('input[name]') | All elements named <input> that have an attribute with any value |
 |soup.select('input[type="button"]') | All elements named <input> that have an attribute named type with value button |
 
-  **Instead of writing the selector yourself, you can right click the element in your
-  browser and select "Inspect Element". When the developer's console opens, right-click
-  the element's HTML and select "Copy > CSS Selector" to copy the selector string to the
-  clipboard and paste it into your source code.**  
+**Instead of writing the selector yourself, you can right click the element in your
+browser and select "Inspect Element". When the developer's console opens, right-click
+the element's HTML and select "Copy > CSS Selector" to copy the selector string to the
+clipboard and paste it into your source code.**  
     
-  The select() method will return *a list of Tag objects*, which is how BS represents an
-  HTML element. 
+The select() method will return *a list of Tag objects*, which is how BS represents an
+HTML element, one Tag object for every match in the object HTML. You can put the str() function on them to show the HTML they represent.  
+ 
+Here's Beautiful Soup in action given the following HTML text. 
+In the Python code, note teh .getText() and .attrs methods.
+ 
+```html
+ <!-- This is the example.html file. -->
+
+<html>
+    <head>
+        The Website Title
+    </head>
+<body>
+    <p>Download my <strong>Python</strong> book from 
+    <a href="https://inventwithpython.com">my website</a>.</p>
+    <p class="slogan"></p>Learn Python the easy way!</p>
+    <p>By <span id="author">Al Sweigart</span></p>
+</body>
+</html>
+ ```
+ ```python
+ import bs4
+exampleFile = open('example.html')
+exampleSoup = bs4.BeautifulSoup(exampleFile.read(), 'html.parser')
+elems = exampleSoup.select('#author')
+print(type(elems))
+# <class 'bs4.element.ResultSet'>
+len(elems)
+# 1
+type(elems[0])
+# <class 'bs4.element.Tag'>
+str(elems[0])
+# <span id="author">Al Sweigart</span>'
+elems[0].getText()
+# 'Al Sweigart
+elems[0].attrs
+# {'id': 'author'}
+```
+
+ 
   
   
 
