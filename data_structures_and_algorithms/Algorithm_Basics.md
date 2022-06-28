@@ -7,7 +7,7 @@ Notes taken as I read thru the book Grokking Algorithms by Aditya Y. Bhargava
 - It's not enough to know how long an algorithm takes to run. You need to know how the running time increases as the list
 size increases! 
 - For example, simple search entails linear time, but binary search entails log time.  
-- Big O doesn't tell you the speed in seconds-- it lets you compate the number of operations. It tells you
+- Big O doesn't tell you the speed in seconds-- it lets you compare the number of operations. It tells you
 how fast the algorithm grows.  
 - Big O always assumes the worst case scenario, the maximum number of operations it would take to finish.  
 - Logs are always expressed in base 2 and n is the number of operations.  
