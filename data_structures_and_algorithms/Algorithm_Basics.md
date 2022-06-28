@@ -11,6 +11,7 @@ size increases!
 how fast the algorithm grows.  
 - Big O always assumes the worst case scenario, the maximum number of operations it would take to finish.  
 - Logs are always expressed in base 2 and n is the number of operations.  
+- Constants are ignored-- so for a sorting algo O(n * 1/2 * n), it's just O(n**2)
   
 >&nbsp;&nbsp; Common Big O run times:  
 >&nbsp;&nbsp; O(log n)-- log time, ex. Binary Search  
