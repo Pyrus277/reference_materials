@@ -19,7 +19,7 @@ exampleFile = open('example.html')
 exampleSoup = bs4.BeautifulSoup(exampleFile, 'html.parser')
 type(exampleSoup) # confrim it's a bs4 obejct
 ```
-Once you have this bs4 object, you cna use its methods to locate specific parts of an 
+Once you have this bs4 object, you can use its methods to locate specific parts of an 
 HTML document. This is a much more reliable and effieicnt alternative to regexp. 
 You can retrieve a web page element from a bs4 object by calling the select() method
 and passing a string of a CSS selector for the element you are looking for.  
