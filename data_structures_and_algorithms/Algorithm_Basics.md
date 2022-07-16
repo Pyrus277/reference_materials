@@ -100,13 +100,14 @@ To put this in code:
 ```python
 def look_for_key(box): # box == a list
     for item in box:
-        if item == box:
-            look_for_key(item)
-        if item == "key":
+        if item == box: # Recursive case
+            look_for_key(item) 
+        if item == "key": # Base base
             print("found it!"
             break
 ````
-
+As seen above, every recursive function has a **base case** and a **recursive case**.
+Gotta make sure you program the base case correctly, or you'll have an infinite loop.
 
 
 
