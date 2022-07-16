@@ -87,5 +87,27 @@ def selectionSort(arr):
 
 print(selectionSort([5,3,6,2,10]))
 ```
+  
+## Recursion
+Say we're looking for a key and we know it's in this box.  
+But among the items in this box are other boxes, and each of those may contain further boxes still.  
+A recursive algorithm is one approach to finding this key. 
+**This is a kind of function that refers to itself:**  
+We're going to LOOK FOR THE KEY.  
+For each item in the box, if it's a box, we're gonna open it and LOOK FOR THE KEY (this is the recusion)  
+If the item is the key, we can stop.  
+To put this in code:
+```python
+def look_for_key(box): # box == a list
+    for item in box:
+        if item == box:
+            look_for_key(item)
+        if item == "key":
+            print("found it!"
+            break
+````
+
+
+
 
 
