@@ -68,3 +68,36 @@ Linked lists can only do sequential, which is what it sounds like.
 Arrays can do both, with random access being availability to jump
 to any element. Arrays are generally faster at reads because of 
 random access ability.
+
+## The Stack
+
+Example - a pile of sticky notes with to do list items. You interact with this list by **pushing,** adding a new item to it, or **popping** (removing) the most recent item and reading it.  
+  
+The stack is an important DS to understand when using recursion.
+Computers use a stack internally called the call stack:   
+This series of functions illustrates the call stack:
+```python
+def bye():
+    print("Ok, bye!")
+
+def greet2(name):
+    print(f"how are you, {name}!")
+
+def greet(name):
+    print(f"Hello, {name}!")
+    greet2(name)
+    print("getting ready to say bye...")
+    bye()
+```
+Calling greet('maggie') allocates a *box* of memory for this function and the variable 'maggie' is stored within. This function then calls greet2(), and another box of memory is allocated for it. You can think of the greet2 box going on top of (*pushed* on top of) greet(), creating a stack.  
+When greet2 prints and completes is gets taken off (*popped* off) the stack. The topmost function is once again greet(), and it's not *partially completed*.  
+The main concept here: *When you call a function from another function, the calling function is paused in a partially completed state. All the values of the variables for that function are still in stored memory.*  
+Next, greet() calls bye() and a box for that function is added to the top of the stack. It completes, gets popped off, and the stack is back to greet().
+
+
+
+
+
+
+
+
