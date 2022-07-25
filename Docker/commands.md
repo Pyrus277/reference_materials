@@ -23,5 +23,10 @@ $ docker ps
   
 Start a container. If you run $ docker ps -a, you can start up a stopped image by typing:
 ```bach
-$ docker start -i <first few characters of the image name>
+$ docker start -i <first few characters of the container ID>
+```  
+  
+  Enter into a running process, one of the ones listed after typing $ docker ps. If you don't specify the username with -u it'll default to root:
+  ```bash
+  $ docker exec -it -u <username> <container id> bash
 
