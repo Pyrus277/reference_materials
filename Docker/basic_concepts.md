@@ -26,7 +26,9 @@ This image contains things such as:
 - Environment variables.
 
 #### Create a Container  
-Once we have an image, we tell Docker to start a container using that image. A container is a process that has its own filesystem provided by the image. 
-When we run the application we do inside the container using Docker with a special CLI command. 
+Once we have an image, we tell Docker to start a container using that image. A container is a process that has its own filesystem provided by the image-- it's an isolated environment. 
+When we run the application we do it inside the container using Docker with a special CLI command. 
 We can store our container on Docker Hub and from there to any machine running Docker. 
 hub.docker.com is a registry for Docker images and you can find the names for official Docker images.
+
+
