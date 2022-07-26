@@ -35,12 +35,12 @@ hub.docker.com is a registry for Docker images and you can find the names for of
 ### Dockerize a web app
 Step 1. Add a docker file to your application files. This file contains instructions for building an image.  
 Step 2. In that file, create an image with the FROM command after researching the platform and runtime environment you want your app to run on. In this case:
-```bash
-$ FROM node:14.16.0-alpine3.13
+```docker
+FROM node:14.16.0-alpine3.13
 ```
 Step 3: In the terminal window for the working dir, build the image:
 ```bash
-$ docker built -t react-app .  # react-app being the name we're assigning it
+$ docker build -t react-app .  # react-app being the name we're assigning it
 ```
 Step 4: Confirm the existence of the new image with
 ```bash
