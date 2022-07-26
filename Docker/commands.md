@@ -49,7 +49,21 @@ Alpine being a super lightweight distro of Linux.
 #### WORKDIR:   
 Specifies the working directory. All the subsequent commands will be executed in the current working directory. 
 #### COPY & ADD:   
-Copies files and directories.
+Copies files and directories.  
+COPY will copy one or more files from the working dir into the image.  
+```docker
+COPY <filename> <filename2>... /folder/ # if the folder in the folder argument doesn't exist, Docker will create.
+# We're in a Linux env, so wildcards are good to use here.
+# To just go ahead and copy everything in the curret directory into the app dir, we can just go like
+COPY . /app/
+# The dir argument can be aboslute, but it can be relative if we set the working directory first:
+WORKDIR /app
+copy . .
+# If any of the arguments after copy take a filename with a space in it, all the arguments need to go in [], and each one within ""
+```
+ADD has syntax just like copy, except it can take URLs as arguments if you have files hosted online.
+It can also take compressed files and decompress them into the directory. 
+
 #### RUN:   
 Executes OS commands. All the Bash lines you want to execute go here.
 #### ENV:   
