@@ -42,6 +42,7 @@ Step 3: In the terminal window for the working dir, build the image:
 ```bash
 $ docker build -t react-app .  # react-app being the name we're assigning it
 ```
+This is a main command - when you make updates to the docker file, need to rerun this build command. 
 Step 4: Confirm the existence of the new image with
 ```bash
 $ docker image ls
@@ -51,7 +52,25 @@ Step 5: Build the container in the image we just made:
 $ docker run -it react-app
 ```
 This will put us in the interactive mode for the programming language. We gotta get out and go back in with the above command, but append 'bash' to the end. In the case of Alpine in this example, Bash is not part of the os, so we actually append "sh" for shell.
+You can also just run images you have saved if you want to play around on the command line to get a sense of what functionalities that particular shell has. 
 
 Step 6: Copy application files into the image. 
+```docker
+WORKDIR /app
+COPY . .
+```
+See notes in the commands.md file.
 
+Step 7:
+Create a system user on which your app will run.
+On the cli it would go like,
+```
+$ addgroup app # app is just the name we assign
+$ adduser -S -G app app # -S designates it as a system user (as opposed to a human account). -G assigns the group, app. Final argument, app, is the user name. Same as group, a linux best practice.
+```
+but we can just chain these commands and put them in our Dockerfile in a RUN statement. And then likewise set the user
+```docker
+RUN addgroup app && adduser -S -G app app
+USER app
+```
 
