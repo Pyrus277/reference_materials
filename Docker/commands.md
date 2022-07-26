@@ -58,18 +58,30 @@ COPY <filename> <filename2>... /folder/ # if the folder in the folder argument d
 COPY . /app/
 # The dir argument can be aboslute, but it can be relative if we set the working directory first:
 WORKDIR /app
-copy . .
+COPY . .
 # If any of the arguments after copy take a filename with a space in it, all the arguments need to go in [], and each one within ""
 ```
 ADD has syntax just like copy, except it can take URLs as arguments if you have files hosted online.
 It can also take compressed files and decompress them into the directory. 
+You can also make a .dockerignore file to list things you don't want copied over.
 
 #### RUN:   
 Executes OS commands. All the Bash lines you want to execute go here.
 #### ENV:   
-Set environment variables.
-#### EXPOSE:  
+Set environment variables. For examples:
+```docker
+ENV API_URL=http://api.myapp.com
+```
+#### EXPOSE:
+```docker
+EXPOSE <port number> 
+```
 Tells docker that our container is starting on a specific port.
+#### **Important** If from a Docker container you run an app that runs a webserver from a specific port, the port that is open is from the container, not the host computer.  
+Tells what port the container will be listening on. 
+Doesn't automatically publish the port on the host, it's just a form of documentation form of documentation to communicate what port the container will eventually listen on.
+
+
 #### USER:  
 Specifies the user that should run the app. Usually one with limited privileges.
 #### CMD & Entrypoint:  
