@@ -15,8 +15,11 @@ On hub.docker.com we can find official container names.
 How to start a container from an image.
 ```bash
 $ docker run -it <image_name> 
-```    
-  
+```
+To run the container and the app within:
+```bash
+$ docker run <app-name> npm start # npm start in the case of a js node app.
+```
 List the running containers. -a lets you see stopped containers as well.  
 ```bash
 $ docker ps 
@@ -39,6 +42,12 @@ $ docker build -t <app name> .
 $ docker run -it react-app bash
    # if we don't specify bash or sh, it'll default to the runtime language. 
 ```
+#### Removing dangling images
+```bash
+$ docker container prune
+$ docker image prune
+```
+
 
 ### Instruction keywords:
 
@@ -95,4 +104,9 @@ Doesn't automatically publish the port on the host, it's just a form of document
 Specifies the user that should run the app. Usually one with limited privileges.
 #### CMD & Entrypoint:  
 Specifies the command that should be executed when you start your container.
+CMD is different from RUN in that it executes after the container is made. 
+With command, use execute form ["",""] so as to not spin up a new shell. Saves resources:
+```bash
+CMD ["npm","start"]
+```
 
