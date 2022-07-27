@@ -31,6 +31,15 @@ $ docker start -i <first few characters of the container ID>
   ```bash
   $ docker exec -it -u <username> <container id> bash
   ```
+#### The recurring combo:
+```bash
+# When you create or update the Dockerfile, run this command to apply.
+$ docker build -t <app name> . 
+# Then to build and enter the container go:
+$ docker run -it react-app bash
+   # if we don't specify bash or sh, it'll default to the runtime language. 
+```
+
 ### Instruction keywords:
 
 #### Keyword: FROM
