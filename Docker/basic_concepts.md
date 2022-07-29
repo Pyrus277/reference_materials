@@ -42,7 +42,8 @@ Step 3: In the terminal window for the working dir, build the image:
 ```bash
 $ docker build -t react-app .  # react-app being the name we're assigning it
 ```
-This is a main command - when you make updates to the docker file, need to rerun this build command. 
+This is a main command - when you make updates to the docker file, need to rerun this build command.   
+  
 Step 4: Confirm the existence of the new image with
 ```bash
 $ docker image ls
@@ -72,5 +73,29 @@ but we can just chain these commands and put them in our Dockerfile in a RUN sta
 ```docker
 RUN addgroup app && adduser -S -G app app
 USER app
+```
+
+Step 8:
+Set the entrypoint in your Docker file
+```bash
+CMD [“npm”, “start”]
+```
+
+### The Docker file so far
+```docker
+FROM node:14.16.0-alpine3.13
+
+RUN addgroup app && adduser -S -G app app 
+RUN mkdir /app && chown app:app /app # !! This line here not shown above, it resolves permission issues. !!
+USER app
+
+WORKDIR /app
+COPY package*.json ./  # !! This line here not shown above it allows docker to reuse the npm package files from the cache, even if other changes to the file are made. !!
+RUN npm install
+COPY . . # copyting application files-- this layer should always be rebuilt. 
+ENV API_URL=http://api.myapp.com
+EXPOSE 3000
+
+CMD [“npm”, “start”]
 ```
 
