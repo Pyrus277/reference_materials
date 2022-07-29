@@ -10,7 +10,10 @@ Also the file is run by sourcing it, with 'source' + script_name, or just '.' + 
 $ chmod +x <script_name>
 $ . <script_name>
 ```
-
+   
+Running a bash script will start a child shell and any variables set in that script will only exist in the child shell.
+To bring the contents of a script to the current shell you gotta run it with the source command as mentioned above.  
+   
 #### Annoying things to remember:
 Spacing matters-   
 No spaces before or after the = for assignments.  
