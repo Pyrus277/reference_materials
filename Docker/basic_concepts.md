@@ -99,3 +99,20 @@ EXPOSE 3000
 CMD [“npm”, “start”]
 ```
 
+### Tagging images
+
+Docker automatically puts the "latest" tag on files, but this can come to be misleading. So always tag your images. 
+You can tag an image when you build it by appending :<tagname> to the usualy build commmand  
+```docker
+docker build -t react-app:<name> .
+```
+If the file is updated often usually a simple integer is used.  
+If it's updated not so often, some groups use version numbers like 3.4.1  
+Other groups use a code name.
+  
+You can also just use the tag command:
+  ```docker
+  docker image tag react-app:latest react-app:1
+  ```
+
+  
