@@ -20,11 +20,22 @@ To run the container and the app within:
 ```bash
 $ docker run <app-name> npm start # npm start in the case of a js node app.
 ```
+To run the container in detached mode.
+After this, when you run docker ps, you'll see it running in the background. 
+```bash
+$ docker run -d react-app
+```
 List the running containers. -a lets you see stopped containers as well.  
 ```bash
-$ docker ps 
+$ docker logs <first few chars of id>
+$ docker logs -n 5 -t <first few chars of id> # show the 5 most recent lines 
 ```  
-  
+Reading logs - for running containers in the background, if you're having issues or want to see
+the outputs, you can check the logs:
+```bash
+#
+```
+
 Start a container. If you run $ docker ps -a, you can start up a stopped image by typing:
 ```bach
 $ docker start -i <first few characters of the container ID>
