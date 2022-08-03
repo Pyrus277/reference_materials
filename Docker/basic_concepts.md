@@ -115,4 +115,15 @@ You can also just use the tag command:
   docker image tag react-app:latest react-app:1
   ```
 
+### Sharing images
+How to share images without going to Dockerhub.  
+This command saves a compressed file of the image in the current folder.
+$ docker image save -o <compressed name> <repository name>:tag
+```bash
+docker image save -o react-app.tar react--app:3
+```  
+    
+If you have a compressed image saves, you can then load it by:
+$ docker image load -i react-app.tar
+  
   
