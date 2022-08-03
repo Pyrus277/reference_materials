@@ -53,14 +53,44 @@ $ docker build -t <app name> .
 $ docker run -it react-app bash
    # if we don't specify bash or sh, it'll default to the runtime language. 
 ```
-#### Removing dangling images
+### Removing dangling images
 ```bash
 $ docker container prune
 $ docker image prune
 ```
+#### Publishing Ports
+Running a web app in the container will publish to a port within the container, but not on the host machine.
+To send traffic to the host machine port, you need to publish a port:  
+1. Run $ docker ps to see the running containers and look at the Image Ports column.  
+2. You'll then have to start a new container and publish the port as part of the run command.  
+3. $ docker run -d -p <host port>:<container port> --name <name you want> <image name>
+Example:
+```bash
+docker run -d -p 80:3000 -name c1 react-app
+```
+Now if you open a browser and visit localhost:<host port>, you'll see your app in action.  
 
-
-### Instruction keywords:
+#### Executing commands in a running container.
+For a single command:
+$ docker exec <container name> <command>
+```bash
+docker exec c2 ls
+```
+To get a shell session going:
+```bash
+$ docker exec -it c2 sh   
+```
+**NOTE:** $ Run starts a new containers, $ start resumes a stopped one.
+   
+#### Removing containers
+You can't remove a running container. You must stop it first, or force the remove.
+```docker
+$ docker rm -f <container name> # -f tag forces removal.
+```
+  
+#### Persisting Data with Volumes.
+   
+## Instruction keywords:
 
 #### Keyword: FROM
 Used to specify the base image which we build on.
