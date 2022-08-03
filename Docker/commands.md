@@ -89,6 +89,36 @@ $ docker rm -f <container name> # -f tag forces removal.
 ```
   
 #### Persisting Data with Volumes.
+A **volume** is a storage outside containers. Can be on the host or cloud.  
+Create a volume, inspect a volume:
+```bash
+$ docker volume create app-data
+$ docker volume inspect app-data
+```
+If you want to store volumes on the cloud, you need to researc the appropriate driver to do that.  
+
+Next is to start a container and give it the volume we created for persistent data:
+```bash
+$ docker run -d -p 4000:3000 -v app-data:/absolute/path/in/container/filesystem react-app
+```
+-v maps 'app-data' volume to a directory in the filesystem of the container. If the volume doesn't exist prior, Docker will create it here.   
+
+### Copy files between the host and container
+To copy a file from container to host:
+```bash
+$ docker cp <container id>:<path location in container> <host path-- could be .>
+```
+And simply swap those last two arguments to copy from the host to a container.
+   
+### Sharing the source code with a container
+This means mapping source code on the local machine to a container so we don't need to stop, start, or rebuild the container every time we make a change. 
+In a production environment tho, you absolutely want to build new containers when changes are ready to go. 
+```bash
+$ docker run -d -p 5001:3000 -v $(pwd):/app react-app 
+```
+With this command you're sourcing the working directory that contains your program files to the container. 
+   
+### Everything above is context. It's all gonna be made east with Docker Compose.
    
 ## Instruction keywords:
 
