@@ -13,7 +13,23 @@ $ . <script_name>
    
 Running a bash script will start a child shell and any variables set in that script will only exist in the child shell.
 To bring the contents of a script to the current shell you gotta run it with the source command as mentioned above.  
-   
+  
+#### Modes  
+Strict mode-- Causes shell to exit when a command fails.
+```bash
+set -e
+```
+Verbose mode-- enables printing of shell lines as they are read. Kinda good for debugging I guess.
+```bash
+set -v
+```
+Command trace mode - Script prints what it's going to do before it does it. Better for debugging.
+Will print all the actual events before they happen. Like if a variable gets set, it'll print that.
+```bash
+set -x
+```
+You can also append -xv to the shebang line and it'll do a comprehensive print of everything relevant to the script. This is useful for heavy duty debugging. 
+ 
 #### Annoying things to remember:
 Spacing matters-   
 No spaces before or after the = for assignments.  
@@ -177,4 +193,21 @@ Find all executable non-invisible files and ignore .git dirs
 ```bash
 find . -perm /+x -not -path '*/\.*' -type f
 ```
+  
+Define a function:
+```bash
+add() {
+   num1=$1
+   num2=$2
+   result=$((num1 + num2))
+   echo $result
+}
+# Call the function:
+add 1 2
+# returns 3
+# You can store the output:
+output=$(add 5 9)
+echo $output
+```
+
 
