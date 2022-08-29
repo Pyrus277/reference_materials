@@ -14,7 +14,7 @@ while not url.endswith('#'): # confirmed this by going to comic #1
     # Download the page
     print('Downloading page %s...' % url)
     res = requests.get(url)
-    res.raise_for_status # standard practice - will do nothing if everything is okay
+    res.raise_for_status() # standard practice - will do nothing if everything is okay
     # get our soup object, get down to business.
     soup = bs4.BeautifulSoup(res.text, 'html.parser')
 
